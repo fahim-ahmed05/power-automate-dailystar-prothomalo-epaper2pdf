@@ -9,10 +9,10 @@ This Power Automate Flow is designed to automatically download [Prothom Alo](htt
 - Open Terminal/PowerShell.
 - Type `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted` and press Enter.
 
-**Install ImageMagick**
+**Install [ImageMagick](https://imagemagick.org/script/download.php#windows)**
 - Type `winget install ImageMagick.ImageMagick` and press Enter. Accept necessary permissions to install it.
 
-**Install Microsoft Power Automate**
+**Install [Microsoft Power Automate](https://go.microsoft.com/fwlink/?linkid=2102613)**
 - Type `winget install 9NFTCH6J7FHV` and press Enter. 
 - Accept necessary permissions to install it. 
 
@@ -28,7 +28,7 @@ This Power Automate Flow is designed to automatically download [Prothom Alo](htt
 - Click [here](https://epaper.thedailystar.net/) and login. If you don't have an account, create it! Make sure the ***remember me*** box is checked.
 
 **Change Edge Browser Settings**
-- Go to Edge Browser Settings and change default download location to `C:\ePaper\edge`.
+- Go to [Edge Browser Settings](edge://settings/downloads) and change default download location to `C:\ePaper\edge`.
 - Also turn off ***Ask me what to do with each download***.
 - Close browser.
 
