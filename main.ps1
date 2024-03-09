@@ -20,3 +20,6 @@ else {
     Write-Host "Script downloaded. Running $scriptName"
     & $scriptPath
 }
+
+# Open explorer window
+Invoke-Item "C:\ePaper\output"
