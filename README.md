@@ -60,6 +60,7 @@ This Power Automate Flow is designed to automatically download [Prothom Alo](htt
 - If you have any download manager extension installed on edge, such as IDM, ADM etc. Please disable it before running the flow.
 - Edge Browser will show a popup to allow/deny ***Automatic downloads***. Allow it.
 - Downloaded ePaper PDFs are will be in `C:\ePaper\output` folder.
+- [Prothom Alo E-Paper to PDF Converter](https://github.com/fahim-ahmed05/prothomalo-epaper2pdf) script is being used to download Prothom Alo ePaper. If you see any changes to this repo, please delete `run.ps1` script before running the flow.
 
 ## Support
 
