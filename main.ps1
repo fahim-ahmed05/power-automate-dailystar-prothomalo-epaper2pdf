@@ -1,6 +1,6 @@
 # Define variables
 $scriptName = "run.ps1" 
-$folderPath = $env:SystemDrive + "\ePaper"
+$folderPath = "%epaperFolderPath%"
 $scriptUrl = "https://github.com/fahim-ahmed05/prothomalo-epaper2pdf/raw/main/run.ps1"
 
 # Check if the folder exists, create it if it doesn't
@@ -22,4 +22,4 @@ else {
 }
 
 # Open explorer window
-Invoke-Item "C:\ePaper\output"
+Invoke-Item "%outputFolderPath%"
