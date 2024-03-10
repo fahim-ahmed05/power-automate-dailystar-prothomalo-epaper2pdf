@@ -1,15 +1,18 @@
+SET epaperFolderPath TO $'''C:\\ePaper'''
+SET outputFolderPath TO $'''C:\\ePaper\\output'''
+SET edgeFolderPath TO $'''C:\\ePaper\\edge'''
 # Check if The Daily Star ePaper already exist
 DateTime.GetCurrentDateTime.Local DateTimeFormat: DateTime.DateTimeFormat.DateOnly CurrentDateTime=> CurrentDateTime
 Text.ConvertDateTimeToText.FromCustomDateTime DateTime: CurrentDateTime CustomFormat: $'''ddMMyyyy''' Result=> FormattedDateTime
-IF (File.IfFile.Exists File: $'''C:\\ePaper\\output\\tds%FormattedDateTime%.pdf''') THEN
+IF (File.IfFile.Exists File: $'''%outputFolderPath%\\tds%FormattedDateTime%.pdf''') THEN
     GOTO 'Download Prothom Alo'
 END
 # Download The Daily Star ePaper
 WebAutomation.LaunchEdge.LaunchEdgeCloseDialog Url: $'''https://epaper.thedailystar.net''' WindowState: WebAutomation.BrowserWindowState.Maximized ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
 Display.InputDialog Title: $'''The Daily Star''' Message: $'''How many pages are there in today\'s ePaper?''' DefaultValue: 16 InputType: Display.InputType.SingleLine IsTopMost: True UserInput=> UserInput
 Text.ToNumber Text: UserInput Number=> TextAsNumber
-IF (Folder.IfFolderExists.Exists Path: $'''C:\\ePaper\\edge''') THEN
-    Folder.Empty Folder: $'''C:\\ePaper\\edge'''
+IF (Folder.IfFolderExists.Exists Path: edgeFolderPath) THEN
+    Folder.Empty Folder: edgeFolderPath
 END
 WebAutomation.PressButton.PressButton BrowserInstance: Browser Control: appmask['Web Page \'h ... top&view=2\'']['Span \'Download current Page\''] WaitForPageToLoadTimeout: 60
 LOOP LoopIndex FROM 2 TO TextAsNumber STEP 1
@@ -18,20 +21,20 @@ LOOP LoopIndex FROM 2 TO TextAsNumber STEP 1
 END
 WAIT 2
 WebAutomation.CloseWebBrowser BrowserInstance: Browser
-Folder.GetFiles Folder: $'''C:\\ePaper\\edge''' FileFilter: $'''*.pdf''' IncludeSubfolders: False FailOnAccessDenied: False SortBy1: Folder.SortBy.CreationTime SortDescending1: True SortBy2: Folder.SortBy.NoSort SortDescending2: False SortBy3: Folder.SortBy.NoSort SortDescending3: False Files=> Files
-IF (Folder.IfFolderExists.DoesNotExist Path: $'''C:\\ePaper\\output''') THEN
-    Folder.Create FolderPath: $'''C:\\ePaper''' FolderName: $'''output'''
+Folder.GetFiles Folder: edgeFolderPath FileFilter: $'''*.pdf''' IncludeSubfolders: False FailOnAccessDenied: False SortBy1: Folder.SortBy.CreationTime SortDescending1: True SortBy2: Folder.SortBy.NoSort SortDescending2: False SortBy3: Folder.SortBy.NoSort SortDescending3: False Files=> Files
+IF (Folder.IfFolderExists.DoesNotExist Path: outputFolderPath) THEN
+    Folder.Create FolderPath: outputFolderPath FolderName: $'''output'''
 END
-Pdf.MergeFiles PDFFiles: Files MergedPDFPath: $'''C:\\ePaper\\output\\tds.pdf''' IfFileExists: Pdf.IfFileExists.Overwrite PasswordDelimiter: $''','''
+Pdf.MergeFiles PDFFiles: Files MergedPDFPath: $'''%outputFolderPath%\\tds.pdf''' IfFileExists: Pdf.IfFileExists.Overwrite PasswordDelimiter: $''','''
 ON ERROR REPEAT 1 TIMES WAIT 2
 END
-File.RenameFiles.RenameAddDateOrTime Files: $'''C:\\ePaper\\output\\tds.pdf''' DateTimeToAdd: File.DateTimeToAdd.Current DateTimePosition: File.AddTextPosition.AfterName DateTimeSeparator: File.Separator.Nothing DateTimeFormat: $'''ddMMyyyy''' IfFileExists: File.IfExists.Overwrite
-Folder.Empty Folder: $'''C:\\ePaper\\edge'''
+File.RenameFiles.RenameAddDateOrTime Files: $'''%outputFolderPath%\\tds.pdf''' DateTimeToAdd: File.DateTimeToAdd.Current DateTimePosition: File.AddTextPosition.AfterName DateTimeSeparator: File.Separator.Nothing DateTimeFormat: $'''ddMMyyyy''' IfFileExists: File.IfExists.Overwrite
+Folder.Empty Folder: edgeFolderPath
 LABEL 'Download Prothom Alo'
 @@copilotGeneratedAction: 'False'
 Scripting.RunPowershellScript.RunPowershellScript Script: $'''# Define variables
 $scriptName = \"run.ps1\" 
-$folderPath = $env:SystemDrive + \"\\ePaper\"
+$folderPath = \"%epaperFolderPath%\"
 $scriptUrl = \"https://github.com/fahim-ahmed05/prothomalo-epaper2pdf/raw/main/run.ps1\"
 
 # Check if the folder exists, create it if it doesn\'t
@@ -52,7 +55,8 @@ else {
     & $scriptPath
 }
 
-Invoke-Item \"C:\\ePaper\\output\"'''
+# Open explorer window
+Invoke-Item \"%outputFolderPath%\"'''
 EXIT Code: 0
 
 # [ControlRepository][PowerAutomateDesktop]
