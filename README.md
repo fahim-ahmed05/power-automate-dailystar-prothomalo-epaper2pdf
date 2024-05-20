@@ -1,6 +1,6 @@
 # Download Prothom Alo & The Daily Star E-Paper as PDF
 
-[![Static Badge](https://img.shields.io/badge/Join%20Telegram%20Group-Readers%20Club-blue)](https://t.me/+jTKFvw-_SXg0NzZl)
+[![Static Badge](https://img.shields.io/badge/Join%20WhatsApp%20Group-Readers%20Club-green)](https://chat.whatsapp.com/KW3F0rKTYkQB0b8pWEba7u)
 
 This Power Automate Flow is designed to automatically download [Prothom Alo](https://epaper.prothomalo.com/) & [The Daily Star](https://epaper.thedailystar.net/) ePaper content as a PDF file using browser automation and PowerShell scripting. With this flow, you can streamline the process of fetching daily ePaper content and converting it into a PDF format for easier access and archival purposes.
 
@@ -64,7 +64,7 @@ This Power Automate Flow is designed to automatically download [Prothom Alo](htt
 
 ## Support
 
-For any inquiries, feedback, or support related to this Power Automate Flow, please message in this [telegram group](https://t.me/+jTKFvw-_SXg0NzZl).
+For any inquiries, feedback, or support related to this Power Automate Flow, please message in this [whatsapp group](https://chat.whatsapp.com/KW3F0rKTYkQB0b8pWEba7u).
 
 ## Donate
 If you found this project helpful or useful, you can support my work by buying me a coffee.
