@@ -42,6 +42,7 @@ This Power Automate Flow is designed to automatically download [Prothom Alo](htt
 - Exit Power Automate.
 
 ## Run
+
 - Open Microsoft Power Automate.
 - Click on ***My flows***.
 - Click on the ***Play button*** next to the flow name.
@@ -52,6 +53,7 @@ This Power Automate Flow is designed to automatically download [Prothom Alo](htt
 - A explorer window will open with downloaded ePapers.
 
 ## Note
+
 - This is for windows only.
 - Do not keep anything in `C:\ePaper\edge`. The flow will delete everything on run in this folder.
 - Please follow setup instructions carefully.
@@ -61,6 +63,11 @@ This Power Automate Flow is designed to automatically download [Prothom Alo](htt
 - [Prothom Alo E-Paper to PDF Converter](https://github.com/fahim-ahmed05/prothomalo-epaper2pdf) script is being used to download Prothom Alo ePaper. If you see any changes to this repo, please delete `run.ps1` script before running the flow.
 
 ## Donate
-If you found this project helpful or useful, you can support my work by buying me a coffee.
 
-<a href="https://www.buymeacoffee.com/fahim.ahmed" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+Open-source is powered by coffee and curiosity. thanks for your support!
+
+<a href="https://www.buymeacoffee.com/fahim.ahmed" target="_blank">
+  <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" 
+       alt="Buy Me A Coffee" 
+       style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5); -webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5);" />
+</a>
